@@ -1,0 +1,22 @@
+[Unit]
+Description=IR Remote to MQTT bridge for Home Assistant
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/uv run --script /opt/ir2mqtt/ir2mqtt.py
+Restart=always
+RestartSec=5
+User=root
+
+# Let uv cache in a stable location
+Environment=UV_CACHE_DIR=/opt/ir2mqtt/.cache/uv
+# Avoid uv trying to fetch Python itself
+Environment=UV_PYTHON_PREFERENCE=only-system
+
+ProtectHome=yes
+NoNewPrivileges=yes
+
+[Install]
+WantedBy=multi-user.target
