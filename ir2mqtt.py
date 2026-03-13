@@ -1,6 +1,6 @@
 #!/usr/bin/env -S uv run --script
 # /// script
-# requires-python = "><=3.12"
+# requires-python = ">=3.12"
 # dependencies = [
 #     "evdev>=1.7.0",
 #     "aiomqtt>=2.3.0",
@@ -83,6 +83,7 @@ KEY_MAP: dict[int, str] = {
 
 ACTION_TYPES = ["button_short_press", "button_long_press", "button_double_press"]
 
+
 @dataclass
 class ButtonState:
     """Track state for multi-action detection on a single key."""
@@ -92,6 +93,7 @@ class ButtonState:
     long_press_fired: bool = False
     press_count: int = 0
     double_press_task: asyncio.Task[None] | None = None
+
 
 @dataclass
 class IR2MQTT:
