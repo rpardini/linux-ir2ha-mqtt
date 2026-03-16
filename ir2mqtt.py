@@ -32,10 +32,10 @@ log = logging.getLogger("ir2mqtt")
 # Configuration — adapt these or load from env / config file
 # ---------------------------------------------------------------------------
 
-MQTT_BROKER = "homeassistant.local"
+MQTT_BROKER = "192.168.0.50"
 MQTT_PORT = 1883
-MQTT_USER: str | None = None
-MQTT_PASSWORD: str | None = None
+MQTT_USER: str | None = "ir2mqtt"
+MQTT_PASSWORD: str | None = "ir2mqtt"
 
 DEVICE_ID = "odroid_n2_ir_remote"
 DEVICE_NAME = "ODROID-N2+ IR Remote"
