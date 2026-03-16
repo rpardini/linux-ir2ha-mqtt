@@ -1,0 +1,13 @@
+[project]
+name = "linux-ir2ha-mqtt"
+version = "0.1.0"
+description = "Linux EV IR to Home Assistant MQTT bridge"
+requires-python = ">=3.13"
+dependencies = [
+    "evdev>=1.7.0",
+    "aiomqtt>=2.3.0"
+]
+
+# Ruff 120 columns
+[tool.ruff]
+line-length = 120

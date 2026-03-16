@@ -1,6 +1,6 @@
 #!/usr/bin/env -S uv run --script
 # /// script
-# requires-python = ">=3.12"
+# requires-python = ">=3.13"
 # dependencies = [
 #     "evdev>=1.7.0",
 #     "aiomqtt>=2.3.0",
@@ -207,9 +207,7 @@ class IR2MQTT:
             if not state.long_press_fired:
                 state.press_count += 1
                 if state.double_press_task is None:
-                    state.double_press_task = asyncio.create_task(
-                        self._handle_double_press_timeout(keycode)
-                    )
+                    state.double_press_task = asyncio.create_task(self._handle_double_press_timeout(keycode))
             state.long_press_fired = False
 
     async def monitor_input(self) -> None:
@@ -233,9 +231,7 @@ class IR2MQTT:
                 dev.close()
             sys.exit(1)
 
-        will = aiomqtt.Will(
-            topic=AVAILABILITY_TOPIC, payload="offline", qos=1, retain=True
-        )
+        will = aiomqtt.Will(topic=AVAILABILITY_TOPIC, payload="offline", qos=1, retain=True)
         async with aiomqtt.Client(
             hostname=MQTT_BROKER,
             port=MQTT_PORT,
