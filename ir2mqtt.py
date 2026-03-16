@@ -242,6 +242,8 @@ def main() -> None:
 	def _signal_handler() -> None:
 		log.info("Shutting down...")
 		app.stop()
+		loop.stop()
+		exit(1)
 
 	for sig in (signal.SIGTERM, signal.SIGINT):
 		loop.add_signal_handler(sig, _signal_handler)
