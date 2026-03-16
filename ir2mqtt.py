@@ -43,7 +43,7 @@ DEVICE_NAME = os.environ.get("DEVICE_NAME", "ODROID-N2+ IR Remote")
 DEVICE_MANUFACTURER = os.environ.get("DEVICE_MANUFACTURER", "Hardkernel")
 DEVICE_MODEL = os.environ.get("DEVICE_MODEL", "ODROID-N2+")
 
-IR_DEVICE_NAME_MATCH = os.environ.get("IR_DEVICE_NAME_MATCH", "gpio-ir-recv")
+IR_DEVICE_NAME_MATCH = os.environ.get("IR_DEVICE_NAME_MATCH", "meson-ir")
 
 DISCOVERY_PREFIX = "homeassistant"
 BASE_TOPIC = f"ir2mqtt/{DEVICE_ID}"
